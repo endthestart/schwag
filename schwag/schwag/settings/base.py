@@ -194,15 +194,17 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'south',
     'localflavor',
     'easy_thumbnails',
-    'custom_auth',
     'senex_shop',
     'senex_shop.cart',
     'senex_shop.checkout',
     'senex_shop.contact',
     'senex_shop.core',
     'senex_shop.custom',
+    'senex_shop.discounts',
+    'senex_shop.news',
     'senex_shop.shipping',
 )
 
@@ -265,14 +267,12 @@ SOUTH_TESTS_MIGRATE = False
 THUMBNAIL_BASEDIR = 'thumbs'
 ########## END THUMBNAIL CONFIGURATION
 
-########## AUTH CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/topics/auth/customizing/
-AUTHENTICATION_BACKENDS = ('custom_auth.auth.Authenticate',)
-AUTH_USER_MODEL = 'custom_auth.User'
-########## END AUTH CONFIGURATION
-
 ########## STRIPE CONFIGURATION
 # See: http://django-stripe-payments.readthedocs.org/en/latest/installation.html
 STRIPE_PUBLIC_KEY = environ.get("STRIPE_PUBLIC_KEY", "pk_test_BnKaAmgD81hWGi1F1suzPmX6")
 STRIPE_SECRET_KEY = environ.get("STRIPE_SECRET_KEY", "sk_test_x1CjT9YMoj30rlpg50CnmD8A")
 ########## END STRIPE
+
+SOUTH_MIGRATION_MODULES = {
+        'easy_thumbnails': 'easy_thumbnails.south_migrations',
+    }

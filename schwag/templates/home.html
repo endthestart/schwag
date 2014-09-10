@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <!-- Jumbotron -->
+    <div class="sixteen columns">
+        <div class="jumbotron">
+            <figure>
+                <img src="{% static "img/carousel/cdale.jpg" %}">
+            </figure>
+        </div>
+    </div>
+{% endblock %}

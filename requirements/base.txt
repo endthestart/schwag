@@ -1,8 +1,9 @@
-Django==1.6.5
+Django==1.6.6
 bpython==0.13
 django-braces==1.4.0
 django-model-utils==2.0.3
+easy-thumbnails==2.0.1
 logutils==0.3.3
 South==0.8.4
-django-senex-shop==0.1.2
-django-custom-auth==0.1.1
+django-senex-shop==0.1.6
+pytz==2014.4

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ category.name_path }}{% endblock %}
+
+{% block content %}
+<!--<div class="category-navigation sixteen columns">-->
+    <!--{% block breadcrumbs %}-->
+    <!--<a href="{% url 'store_home' %}">Store</a> {% for ancestor in category.get_ancestors %} >-->
+    <!--<a href="{{ ancestor.get_absolute_url }}">{{ ancestor.name }}</a>{% endfor %}-->
+    <!--{% endblock breadcrumbs %}-->
+<!--</div>-->
+<div class="category-name sixteen columns">
+    <h1 class="category-title">{% if category.name %}{{ category.name }}{% else %}Schwag Shop{% endif %}</h1>
+</div>
+
+{% if child_categories %}
+<div class="sixteen columns category-row">
+    <ul class="child-category-list">
+        {% for child in child_categories %}
+            <li>
+                <a href="{{ child.get_absolute_url }}">
+                <div class="child-category-image">
+                        <img src="{% if child.image %}{% thumbnail child.image 220x220 crop %}{% else %}None{% endif %}"/>
+                </div>
+                <div class="child-category-title">
+                    <h4>{{ child.name }}</h4>
+                </div>
+               </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% if products %}
+<div class="sixteen columns product-row">
+    <ul class="category-product-list">
+        {% for product in products %}
+            <a href="{{ product.get_absolute_url }}">
+                <div class="product-image">
+                    <img src="{% if product.main_image.image %}{% thumbnail product.main_image.image 220x100 crop %}{% else %}None{% endif %}"/>
+                </div>
+                <h3>{{ product.name }}</h3>
+            </a>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% endblock %}

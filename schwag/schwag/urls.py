@@ -1,28 +1,22 @@
 from django.conf.urls import patterns, include, url
-from django.conf.urls.static import static
 from django.conf import settings
-from django.views.generic import TemplateView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name='base.html')),
-
-    # Examples:
-    # url(r'^$', 'schwag.views.home', name='home'),
-    # url(r'^schwag/', include('schwag.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^checkout/', include('senex_shop.checkout.urls')),
-    url(r'^cart/', include('senex_shop.cart.urls')),
-    url(r'^shop/', include('senex_shop.urls')),
-    url(r'^account/', include('custom_auth.urls')),
+                       url(r'^$', 'schwag.views.home', name='home'),
+                       url(r'^account/login/$', 'schwag.views.login', name='login'),
+                       url(r'^account/logout/$', 'schwag.views.logout', name='logout'),
+                       url(r'^account/register/$', 'schwag.views.register', name='register'),
+                       url(r'^account/', include('django.contrib.auth.urls')),
+                       url(r'^checkout/', include('senex_shop.checkout.urls')),
+                       url(r'^cart/', include('senex_shop.cart.urls')),
+                       url(r'^shop/', include('senex_shop.urls')),
+                       url(r'^news/', include('senex_shop.news.urls')),
+                       url(r'^admin/', include(admin.site.urls)),
 )
 
 # Uncomment the next line to serve media files in dev.
@@ -30,6 +24,12 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns += patterns('',
                             url(r'^__debug__/', include(debug_toolbar.urls)),
-                            )
+    )
+
+if settings.DEBUG:
+    urlpatterns += patterns('django.views.static',
+                            (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
+    )
