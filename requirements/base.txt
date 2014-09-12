@@ -5,5 +5,5 @@ django-model-utils==2.0.3
 easy-thumbnails==2.0.1
 logutils==0.3.3
 South==0.8.4
-django-senex-shop==0.1.6
+django-senex-shop==0.1.7
 pytz==2014.4
