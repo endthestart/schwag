@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% block title %}About{% endblock title %}
+
+{% block content %}
+    <!-- Jumbotron -->
+    <div class="sixteen columns">
+        <div class="jumbotron">
+            <figure>
+                <img src="{% static "img/carousel/cdale.jpg" %}">
+            </figure>
+        </div>
+    </div>
+    <div class="fourteen columns offset-by-one add-top">
+        <h3>BMX</h3>
+        <p>We want to be your source for BMX bicycles and accessories for ALL ages and skill levels. Let us help you build up your perfect ride and get you geared up right. We are an Authorized Dealer for GT BMX bicycles. From your first gate drop to your first podium finish BMX race bikes from GT have you covered. Stop in and check them out. We also feature Fly Racing apparel and accessories -- great quality at a competitive price!  If you are a racer, ask about our BMX racer's discount.</p>
+    </div>
+{% endblock %}

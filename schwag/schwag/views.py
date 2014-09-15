@@ -26,6 +26,11 @@ def location(request, template_name='location.html'):
     return render_to_response(template_name, context, RequestContext(request))
 
 
+def bmx(request, template_name='bmx.html'):
+    context = {}
+    return render_to_response(template_name, context, RequestContext(request))
+
+
 def contact(request, template_name='contact.html'):
     form = ContactForm()
     if request.method == 'POST':
