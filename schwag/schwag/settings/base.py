@@ -139,6 +139,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'senex_shop.core.context_processors.get_default_shop',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders

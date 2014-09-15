@@ -2,7 +2,7 @@
 {% load static from staticfiles %}
 {% load thumbnail %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Contact{% endblock title %}
 
 {% block content %}
     <!-- Jumbotron -->
@@ -20,7 +20,7 @@
 
         <p>{{ shop.name }}
         <br/>{{ shop.address_1 }}
-        <br/>{{ shop.address_2 }}
+        {% if shop.address_2 %}<br/>{{ shop.address_2 }}{% endif %}
         <br/>{{ shop.city }}, {{ shop.state }} {{ shop.zip_code }}</p>
 
         <h3>Phone:</h3>
@@ -28,7 +28,7 @@
         <p>{{ shop.phone }}</p>
 
     </div>
-    <div class="seven columns offset-by-one add-top">
+    <div class="seven columns add-top">
         <h2>Or send us an email!</h2>
 
         <form action="" method="post">
