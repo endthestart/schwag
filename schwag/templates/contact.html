@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <!-- Jumbotron -->
+    <div class="sixteen columns">
+        <div class="jumbotron">
+            <figure>
+                <img src="{% static "img/carousel/cdale.jpg" %}">
+            </figure>
+        </div>
+    </div>
+    <div class="seven columns offset-by-one add-top">
+        <h2>Contact Information</h2>
+
+        <h3>Address:</h3>
+
+        <p>{{ shop.name }}
+        <br/>{{ shop.address_1 }}
+        <br/>{{ shop.address_2 }}
+        <br/>{{ shop.city }}, {{ shop.state }} {{ shop.zip_code }}</p>
+
+        <h3>Phone:</h3>
+
+        <p>{{ shop.phone }}</p>
+
+    </div>
+    <div class="seven columns offset-by-one add-top">
+        <h2>Or send us an email!</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Send Message"/>
+        </form>
+    </div>
+{% endblock %}

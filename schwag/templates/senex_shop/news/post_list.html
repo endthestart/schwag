@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ten columns">
+    {% if post_list %}
+        {% for post in post_list %}
+            <div class="post">
+                <div class="post_title">{{ post.title }}</div>
+                <div class="post_metadata">{{ post.publish|date }}</div>
+                {% if post.photo %}<div class="post_photo"><img src="{{ post.photo.url }}"/></div>{% endif %}
+                <div class="post_body">{{ post.body }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="six columns">
+    <div class="news-categories">
+        <h4>NEWS</h4>
+        {% for category in categories %}
+            <div class="news-category">{{ category }}</div>
+            <div class="news-category-post">
+            <ul>
+                {% for post in category.posts.all %}
+                    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="fourteen columns offset-by-one"></div>
+{% if is_paginated %}
+    <p class="pagination">
+        {% if has_next %}
+            <a class="older" href="?page={{ next }}" title="View older posts">Older</a>
+        {% endif %}
+        {% if has_next and has_previous %} | {% endif %}
+        {% if has_previous %}
+            <a class="newer" href="?page={{ previous }}" title="View newer posts">Newer</a>
+        {% endif %}
+    </p>
+{% endif %}
+</div>
+{% endblock %}

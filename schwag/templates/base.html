@@ -58,11 +58,11 @@
                     <div class="nav">
                 <div class="nav-inner">
                     <ul>
-                        <li class="center-text"><a href="{% url 'home' %}">Our Bikes</a></li>
-                        <li class="center-text"><a href="{% url 'news_index' %}">News</a></li>
                         <li class="center-text"><a href="{% url 'store_home' %}">Shop</a></li>
-                        <li class="center-text"><a href="#">Location</a></li>
-                        <li class="center-text"><a href="#">Contact</a></li>
+                        <li class="center-text"><a href="{% url 'news_index' %}">News</a></li>
+                        <li class="center-text"><a href="/about/">Our Store</a></li>
+                        <li class="center-text"><a href="/location/">Location</a></li>
+                        <li class="center-text"><a href="/contact/">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="/about/">About {{ shop.name }}</a></li>
-                        <li><a href="/contact/">Hours + Location</a></li>
+                        <li><a href="/location/">Hours + Location</a></li>
                         <li>Privacy Policy</li>
                         <li>Site Map</li>
                     </ul>
@@ -115,7 +115,7 @@
                     <ul>
                         <li><a href="/contact/">Contact</a></li>
                         <li>FAQs</li>
-                        <li>Owners Manuals</li>
+                        <li>Service Dept</li>
                     </ul>
                 </div>
             </div>
@@ -123,10 +123,9 @@
                 <div class="footer-column">
                     <h4>Features</h4>
                     <ul>
-                        <li><a href="#">News</a></li>
+                        <li><a href="{% url 'news_index' %}">News</a></li>
                         <li>Events</li>
-                        <li>Technology</li>
-                        <li>Teams &amp; Riders</li>
+                        <li>Team &amp; Riders</li>
                     </ul>
                 </div>
             </div>

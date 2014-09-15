@@ -8,6 +8,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        url(r'^$', 'schwag.views.home', name='home'),
+                       url(r'^about/$', 'schwag.views.about', name='about'),
+                       url(r'^location/$', 'schwag.views.location', name='location'),
+                       url(r'^contact/$', 'schwag.views.contact', name='contact'),
                        url(r'^account/login/$', 'schwag.views.login', name='login'),
                        url(r'^account/logout/$', 'schwag.views.logout', name='logout'),
                        url(r'^account/register/$', 'schwag.views.register', name='register'),
