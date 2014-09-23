@@ -165,6 +165,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'senex_shop.cart.middleware.CartMiddleware'
 )
 ########## END MIDDLEWARE CONFIGURATION
 
