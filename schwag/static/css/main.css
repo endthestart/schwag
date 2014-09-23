@@ -505,14 +505,34 @@ legend span {
 }
 
 .product-row {
-    background-color: #ccc;
     margin-bottom: 10px;
 }
 
-.product-image {
-    padding: 5px;
+ul.category-product-list li {
+    width: 230px;
+    display: inline-block;
+    border: 1px solid #000;
+}
+
+ul.category-product-list li a {
+    text-decoration: none;
+}
+
+div.category-product-image {
+    padding-top: 5px;
+    text-align: center;
+    min-height: 220px;
+    width: 100%;
+}
+
+.category-product-title {
     text-align: center;
 }
+
+.category-product-price {
+    text-align: center;
+}
+
 
 /* Categories
    ----------------------- */
@@ -520,6 +540,10 @@ legend span {
 ul.child-category-list li {
     width: 230px;
     display: inline-block;
+}
+
+ul.child-category-list li a {
+    text-decoration: none;
 }
 
 .category-navigation {
@@ -543,7 +567,6 @@ div.child-category-image {
     padding: 5px;
     text-align: center;
     min-height: 230px;
-    text-align: center;
     width: 100%;
 }
 
